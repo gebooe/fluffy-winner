@@ -3,6 +3,23 @@
 <head>
 	
 	<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    
+    <script>
+        function setSize(){
+//            var height=Math.min(document.documentElement.clientHeight,document.body.clientHeight);
+            var height=document.documentElement.clientHeight;
+            var width=document.documentElement.clientWidth;
+            var size=Math.sqrt((height*width)/512   );
+            document.documentElement.style.fontSize=String(size)+"px";
+            window.console.log(height+"  "+width);
+            window.console.log((height*width));
+            window.console.log(size);
+        }
+        
+        window.addEventListener("resize",setSize);
+        setSize();
+    
+    </script>
 	
 	<style>
 		:root{
@@ -37,6 +54,7 @@
             margin-right: 10px;
             margin-bottom: 0;
             clear: right;
+/*            margin: 0;*/
         }
         
         
@@ -111,11 +129,12 @@
             position: relative;
 /*            background-color: aqua;*/
         }
+        
         .header .title1{
             padding-top: 1vw;
             padding-bottom: 1vw;
 			
-			font-size:2.5vw;
+			font-size:1.4em;
             
 
         }
@@ -275,9 +294,9 @@
         
         #signs-in-cover{
             position: absolute;
-            left: 93%;
-            width: 9%;
-            bottom: 2%;
+            right: 2%;
+            width: 1em;
+            bottom: 1%;
             filter: brightness(2);
             overflow: hidden;
 /*            height: 10%;*/
@@ -626,19 +645,12 @@
 </div>
     
     <div id="weixin-jump"> 
-        
-        <p > 
-            <b style="display: inline;">
-                    请使用浏览器打开
-            </b> 
-            <i style="font-size: 300%;" class="fa fa-hand-o-up" aria-hidden="true"></i> 
-        </p>
-        <div style="font-size: 2vw">
-            <p style="display: inline;">
-                推荐使用火狐
-            </p>
+        <div> 
+            请使用浏览器访问
+     
             <i class="fa fa-firefox" aria-hidden="true"></i>
-            或opera<i class="fa fa-opera" aria-hidden="true"></i>
+            <i class="fa fa-opera" aria-hidden="true"></i>
+        </div>
         </div>
     </div>
     
