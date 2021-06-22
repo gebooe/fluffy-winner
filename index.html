@@ -653,17 +653,17 @@
             <i class="fa fa-firefox" aria-hidden="true"></i>
             <i class="fa fa-opera" aria-hidden="true"></i>
         </div>
-        </div>
     </div>
     
 <script>
-
-    var ua =  navigator.userAgent.toLowerCase()
-    if(ua.indexOf('micromessenger') != -1){
-        j=document.getElementById("weixin-jump");
-        j.style.display="block";
-    }
     
+    function isInWeiXin(){
+        var ua =  navigator.userAgent.toLowerCase()
+        if(ua.indexOf('micromessenger') != -1){
+            j=document.getElementById("weixin-jump");
+            j.style.display="block";
+        }
+    }
     
 
     
