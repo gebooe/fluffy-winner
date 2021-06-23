@@ -2,8 +2,8 @@
 import os
 from xml.dom.minidom import parse,getDOMImplementation
 
-WORK_DIR="."+os.sep+"img"
-XML_FILE="."+os.sep+"img_list.xml"
+WORK_DIR="./img"
+XML_FILE="./img_list.xml"
 
 
 
@@ -25,14 +25,16 @@ class HandleXml:
 	def _trvaversal(self,):
 		filelist=os.listdir(self.work_dir)
 		for fname in filelist:
-			url=os.path.join(self.work_dir,fname)
+			#url=os.path.join(self.work_dir,fname)
+			url='/'.join((self.work_dir,fname))
 			#print(url)
 			if os.path.isfile(url):
 				self.file_list.append([url, ])
 			elif os.path.isdir(url):
 				l=os.listdir(url)
 				for f in l:
-					u=os.path.join(url,f)
+					#u=os.path.join(url,f)
+					u='/'.join((url,f))
 					#print(u)
 					if os.path.isfile(u):
 						self.file_list.append([u, fname])
@@ -48,7 +50,7 @@ class HandleXml:
 			url=i[0]
 			try:
 				self.urls[url]
-			except:
+			except KeyError:
 				#print(url)
 				m=self.xml.createElement("img")
 				u=self.xml.createElement("url")

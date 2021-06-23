@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <imgs>
 	
+	
 
 	<img>
-		<url>.\img\IMG_2777_1024.jpg</url>
+		<url>./img/IMG_2777_1024.jpg</url>
 	</img>
 	<img>
-		<url>.\img\IMG_2832.jpg</url>
+		<url>./img/IMG_2832.jpg</url>
 	</img>
 	<img>
-		<url>.\img\IMG_2882.jpg</url>
+		<url>./img/IMG_2882.jpg</url>
 	</img>
 	<img>
-		<url>.\img\IMG_2883.jpg</url>
+		<url>./img/IMG_2883.jpg</url>
 	</img>
 	<img>
-		<url>.\img\IMG_2916.jpg</url>
+		<url>./img/IMG_2916.jpg</url>
 	</img>
 	<img>
-		<url>.\img\IMG_3076.jpg</url>
+		<url>./img/IMG_3076.jpg</url>
 	</img>
 	<img>
-		<url>.\img\IMG_3084.jpg</url>
+		<url>./img/IMG_3084.jpg</url>
 	</img>
 	<img>
-		<url>.\img\IMG_4578.jpg</url>
+		<url>./img/IMG_4578.jpg</url>
 	</img>
 	<img>
-		<url>.\img\stone-sign.png</url>
+		<url>./img/stone-sign.png</url>
 	</img>
 	<img>
-		<url>.\img\test\IMG_empty.jpg</url>
+		<url>./img/test/IMG_empty.jpg</url>
 	</img>
 	<img>
-		<url>.\img\test\IMG_test.jpg</url>
+		<url>./img/test/IMG_test.jpg</url>
 	</img>
 	<img>
-		<url>.\img\test\IMG_test_2.jpg</url>
+		<url>./img/test/IMG_test_2.jpg</url>
 	</img>
 </imgs>
