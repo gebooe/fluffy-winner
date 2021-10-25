@@ -9,15 +9,34 @@
 //            var height=Math.min(document.documentElement.clientHeight,document.body.clientHeight);
             var height=document.documentElement.clientHeight;
             var width=document.documentElement.clientWidth;
-            var size=Math.sqrt((height*width)/512   );
+            var size=Math.sqrt((height*width)/1024   );
             document.documentElement.style.fontSize=String(size)+"px";
-            window.console.log(height+"  "+width);
-            window.console.log((height*width));
+            //window.console.log(height+"  "+width);
+            //window.console.log((height*width));
             window.console.log(size);
         }
         
+        function getImgInfo(){
+            console.log("can"); 
+            var xhr=new XMLHttpRequest();
+
+            xhr.open("GET","img_list.xml", false);
+
+            xhr.send(null);
+            console.log(xhr.responseText); 
+            
+            
+              
+        }
+            
+        
+        function initDoc(){
+            setFontSize();
+            getImgInfo();
+        }
+    
         window.addEventListener("resize",setFontSize);
-        window.onload=setFontSize;
+        window.onload=initDoc;
     
     </script>
 	
@@ -38,6 +57,20 @@
   			font-family: "zhimang";
   			src: url("/fonts/zhimang.ttf") format("truetype")
 		}
+        
+        body{
+
+			/*background-image: url("img/IMG_2777_1024.jpg");
+			background-repeat: no-repeat;
+			background-position: center bottom;
+			background-attachment: fixed;
+			background-size:100%;
+			*/
+            color: rgba(143,126,145,1.00);
+            
+            
+		}
+
         
         #weixin-jump{
             background-color: rgba(0,0,0,0.5);
@@ -77,52 +110,22 @@
             
 			
 		}
-        
-        .header span {
-/*             box-shadow:2px 0px 5px 0px white;*/
-            padding: 1vw;
-            
-            padding-right: 4vw;
-            padding-left: 4vw;
-            
-            border-right:1.5px solid transparent;
-            border-image: linear-gradient(to bottom,transparent,black 50%,transparent) 1;
-            
-/*            background-color: aqua;*/
-/*            border-right: rgba(102,91,109,1.00) solid;*/
-           
-        }
-        
-        .header span:last-child{
-            padding-right: 0px;
-            border-right: none;
-        }
-        
+
         .header a{
+            color: inherit;
+            font-size: 0.9em;
             cursor: pointer;
-        }
-		
-        .dropdown>a{
-/*             box-shadow:2px 0px 5px 0px white;*/
-            padding: 1vw;
-            
-            padding-right: 4vw;
-            padding-left: 4vw;
-            
-            border-right:1.5px solid transparent;
-            border-image: linear-gradient(to bottom,transparent,black 50%,transparent) 1;
-            
-/*            background-color: aqua;*/
-/*            border-right: rgba(102,91,109,1.00) solid;*/
-           
+            white-space: nowrap;
         }
         
-        .dropdown:last-child a{
-            padding-right: 0px;
-            border-right: none;
-/*            background-color: aquamarine;*/
+        .header a:link, .header a:visited{
+            
+            text-decoration: none;
         }
-		
+        .header a:hover, .header a:active{
+            text-decoration: none;
+        }
+
         
         .header .dropdown{
             display: inline-block;
@@ -141,15 +144,38 @@
         .header .title2{
             padding-top: 1vw;
             padding-bottom: 1vw;
-			font-size:2.5vw;
+			font-size:1em;
             color: rgba(143,126,145,1.00);
         }
         
+        .header .dropdown>a{
+/*             box-shadow:2px 0px 5px 0px white;*/
+            padding: 1vw;
+            
+            padding-right: 4vw;
+            padding-left: 4vw;
+            
+            border-right:1.5px solid transparent;
+            border-image: linear-gradient(to bottom,transparent,black 50%,transparent) 1;
+            
+/*            background-color: aqua;*/
+/*            border-right: rgba(102,91,109,1.00) solid;*/
+           
+        }
+        
+        .header .dropdown:last-child>a{
+            padding-right: 0px;
+            border-right: none;
+/*            background-color: aquamarine;*/
+        }
         .header .dropdown-content{
             list-style: none;
             padding: 1vw;
-            padding-right: 5vw;
+           /* padding-right: 5vw;*/
             padding-left: 5vw;
+            
+            
+            
 /*            width: 20%;*/
             
             margin: 0;
@@ -163,7 +189,7 @@
 */
         }
         
-        @keyframes show-items{
+        @keyframes fade-in-items{
             0% {
                 opacity: 0;
                 transform: translate(0,-100%);
@@ -174,7 +200,16 @@
             }  
         }
         
-        .dropdown-content a,p{
+        @keyframes hide-items{
+            0% {
+                opacity: 0;
+            }  
+            100% {
+                opacity: 1;
+            }  
+        }
+        
+        .dropdown-content a{
 /*            width:;*/
 /*            display: block;*/
             border-bottom:1px solid transparent;
@@ -185,20 +220,31 @@
             
             display: none;
             opacity: 0;
+            
+            -webkit-animation-name: hide-items;
+            -o-animation-name:  hide-items;
+            animation-name: hide-items ;
+            
+            -webkit-animation-fill-mode: forwards;
+            -o-animation-fill-mode:forwards ;
+            animation-fill-mode:forwards ;
              
         }
+    
         
         .dropdown .dropdown-content a:nth-child(2){animation-delay: 1s;}
         .dropdown .dropdown-content a:nth-child(3){animation-delay: 2s;}
         .dropdown .dropdown-content a:nth-child(4){animation-delay: 3s;}
         .dropdown .dropdown-content a:nth-child(5){animation-delay: 4s;}
         .dropdown .dropdown-content a:nth-child(6){animation-delay: 5s;}
+        .dropdown .dropdown-content a:nth-child(7){animation-delay: 6s;}
+        .dropdown .dropdown-content a:nth-child(8){animation-delay: 7s;}
         
         
         
         
         .dropdown:hover .dropdown-content a{
-            display: block;
+            display: inline-block;
             -webkit-animation-duration: 2s;
             -o-animation-duration: 2s;
             animation-duration: 2s;
@@ -207,9 +253,9 @@
             -o-animation-timing-function: ease-out;
             animation-timing-function: ease-out;
             
-            -webkit-animation-name: show-items;
-            -o-animation-name:  show-items;
-            animation-name: show-items ;
+            -webkit-animation-name: fade-in-items;
+            -o-animation-name:  fade-in-items;
+            animation-name: fade-in-items ;
             
             -webkit-animation-fill-mode: forwards;
             -o-animation-fill-mode:forwards ;
@@ -217,7 +263,7 @@
         }
  
         .dropdown:active .dropdown-content a{
-            display: block;
+            display: inline-block;
             -webkit-animation-duration: 2s;
             -o-animation-duration: 2s;
             animation-duration: 2s;
@@ -226,9 +272,9 @@
             -o-animation-timing-function: ease-out;
             animation-timing-function: ease-out;
             
-            -webkit-animation-name: show-items;
-            -o-animation-name:  show-items;
-            animation-name: show-items ;
+            -webkit-animation-name: fade-in-items;
+            -o-animation-name:  fade-in-items;
+            animation-name: fade-in-items ;
             
             -webkit-animation-fill-mode: forwards;
             -o-animation-fill-mode:forwards ;
@@ -237,18 +283,8 @@
         
         
         
-/*
-		body{
 
-			background-image: url("img/IMG_2777_1024.jpg");
-			background-repeat: no-repeat;
-			background-position: center bottom;
-			background-attachment: fixed;
-			background-size:100%;
-			
-            
-		}
-*/
+
       
         .cover{
             position: fixed;
@@ -322,37 +358,7 @@
             }
         }
         
-
-		.grid-container{
-			display: grid;
-			
-			position: absolute;
-			left: 20%;
-			right: 20%;
-			top:12%;
-/*            height:100%;*/
-/*            overflow-y: hidden;*/
-
-			padding: 1.5%;
-			border-radius: 1.5%;
-
-			background-color: rgba(240,248,255,0.54);
-			
-			
-			grid-gap: 2%;
-			-ms-grid-template-columns:  repeat(auto-fit,minmax(13vmax,1fr));
-			grid-template-columns:  repeat(auto-fit,minmax(13vmax,1fr));
-			
-/*
-			-webkit-box-shadow: 1px -1px 10px 0px rgba(0, 0, 0, 0.2),-2px -1px 10px 0px rgba(0, 0, 0, 0.2);
-			box-shadow: 1px -1px 10px 0px rgba(0, 0, 0, 0.2),-2px -1px 10px 0px rgba(0, 0, 0, 0.2);
-*/    
-        
-            display: none;
-		}		
-		
-		
-		@media only screen and (max-aspect-ratio:1024/819){
+        @media only screen and (max-aspect-ratio:1024/819){
 /*
 			body{
 				
@@ -369,6 +375,44 @@
             
 			
 		}
+        
+        .img-covers{
+            position: absolute;
+			left: 20%;
+			right: 20%;
+			top:3rem;
+/*            height:100%;*/
+/*            overflow-y: hidden;*/
+
+			padding: 1.5%;
+			border-radius: 1.5%;
+
+			background-color: rgba(240,248,255,0.54);
+			
+			
+			grid-gap: 2%;
+			-ms-grid-template-columns:  repeat(auto-fit,minmax(13vmax,1fr));
+			grid-template-columns:  repeat(auto-fit,minmax(13vmax,1fr));
+            
+
+			
+/*
+			-webkit-box-shadow: 1px -1px 10px 0px rgba(0, 0, 0, 0.2),-2px -1px 10px 0px rgba(0, 0, 0, 0.2);
+			box-shadow: 1px -1px 10px 0px rgba(0, 0, 0, 0.2),-2px -1px 10px 0px rgba(0, 0, 0, 0.2);
+*/    
+        }
+
+		.grid-container{
+			display: grid;
+/*
+			-ms-grid-template-columns:  repeat(auto-fit,minmax(13vmax,1fr));
+			grid-template-columns:  repeat(auto-fit,minmax(13vmax,1fr));
+*/
+            display: none;
+		}		
+		
+		
+		
 
 	
 		
@@ -580,27 +624,17 @@
     <div class="header">
         <div>
             <div class="dropdown">
-                <a class="title1">首页</a>
-<!--
-                <div class="dropdown-content">
+                <a class="title1" onClick="getImgInfo()">首页</a>
 
-                    <a> oeuoaueoauoeuau</a>
-                    <a>neothuo</a>
-                    <a>neuo</a>
-                    <a>neajvthuo</a>
-                </div>
--->
             </div>
 
             <div class="dropdown">
-                <a>notehuasn</a>
-<!--
+                <a>影视收藏</a>
+
                 <div class="dropdown-content">
-                  <p>ontasoiuiui</p>
-                  <p>onoiuiui</p>
-                  <p>oue</p>
+                    <a href="https://space.bilibili.com/43646124/channel/detail?cid=26207"> 重现化学</a>
                 </div>
--->
+
             
             </div>
             
@@ -618,15 +652,16 @@
 	</div>
 	
 	
-<!--
-	<div class="grid-container">
+	<div class="grid-container img-covers">
         <div class="biger">
           <div class="grid-img">
-            <img src="IMG_empty.jpg" />
+            <img src="img/test/IMG_empty.jpg" />
             </div>
+<!--
           <div class="grid-text">
             test text
             </div>
+-->
       </div>
 
         <div >
@@ -644,7 +679,6 @@
         <div></div>
 
 </div>
--->
     
     <div id="weixin-jump"> 
         <div> 
