@@ -193,10 +193,12 @@
             0% {
                 opacity: 0;
                 transform: translate(0,-100%);
+                pointer-events: none;
             }  
             100% {
                 opacity: 1;
                 transform: translate(0,0%);
+                pointer-events: auto;
             }  
         }
         
@@ -221,13 +223,6 @@
             display: none;
             opacity: 0;
             
-            -webkit-animation-name: hide-items;
-            -o-animation-name:  hide-items;
-            animation-name: hide-items ;
-            
-            -webkit-animation-fill-mode: forwards;
-            -o-animation-fill-mode:forwards ;
-            animation-fill-mode:forwards ;
              
         }
     
@@ -245,6 +240,8 @@
         
         .dropdown:hover .dropdown-content a{
             display: inline-block;
+            pointer-events: none;
+            
             -webkit-animation-duration: 2s;
             -o-animation-duration: 2s;
             animation-duration: 2s;
@@ -264,6 +261,8 @@
  
         .dropdown:active .dropdown-content a{
             display: inline-block;
+            pointer-events: none;
+            
             -webkit-animation-duration: 2s;
             -o-animation-duration: 2s;
             animation-duration: 2s;
@@ -300,7 +299,7 @@
             height: 100%;
             width: 100%;
             
-            background-image: url("img/IMG_2777_1024.jpg");
+            background-image: url("https://photo.tuchong.com/20324134/f/769663485.jpg");
 			background-repeat: no-repeat;
 			background-position: center bottom;
 			background-attachment: fixed;
