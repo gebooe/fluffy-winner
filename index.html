@@ -108,12 +108,11 @@
 			align-items: baseline;
 /*            background-color: aqua;*/
             
-			
+			font-size: 0.8em;
 		}
 
         .header a{
             color: inherit;
-            font-size: 0.9em;
             cursor: pointer;
             white-space: nowrap;
         }
@@ -133,20 +132,7 @@
 /*            background-color: aqua;*/
         }
         
-        .header .title1{
-            padding-top: 1vw;
-            padding-bottom: 1vw;
-			
-			font-size:1.4em;
-            
-
-        }
-        .header .title2{
-            padding-top: 1vw;
-            padding-bottom: 1vw;
-			font-size:1em;
-            color: rgba(143,126,145,1.00);
-        }
+        
         
         .header .dropdown>a{
 /*             box-shadow:2px 0px 5px 0px white;*/
@@ -163,8 +149,16 @@
            
         }
         
+        
+        .header .dropdown:first-child>a{
+            padding-top: 1vw;
+            padding-bottom: 1vw;
+			
+			font-size:1.4em;
+            
+        }
+        
         .header .dropdown:last-child>a{
-            padding-right: 0px;
             border-right: none;
 /*            background-color: aquamarine;*/
         }
@@ -634,7 +628,17 @@
                     <a href="https://space.bilibili.com/43646124/channel/detail?cid=26207"> 重现化学</a>
                 </div>
 
+            </div>
             
+            <div class="dropdown">
+                <a>软件收藏</a>
+
+                <div class="dropdown-content">
+                    <a href="https://ricktu288.github.io/ray-optics/simulator/"> 几何光学模拟</a>
+                    
+                    <a href="http://scratch.trtos.com/circuitjs.html"> 电路模拟</a>
+                </div>
+
             </div>
             
             
